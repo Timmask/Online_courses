@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+    --distance: 10px;
+    --dis:40px;
+    --font_size_1:20px;
+    --font_size_2:24px;
+}
+img{
+    pointer-events: none;
+    user-select: none;}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+   /* padding: 0 10%; */
+}
+.main-text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+.aux-text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+.left-header{
+    width: calc(20% - var(--distance));
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around  ;
+    align-items: center  ;
+    width: 70%;
+}
+.logo > a{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font_size_1);
+    text-decoration: none;
+    color: black;
+}
+.logo-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #6DC4E5;
+}
+.join{
+    width: 231px;
+    height: 63px;
+    font-weight: 700;
+    font-size: var(--font_size_1);
+    background: #8D51C3;
+    border-radius: 20px;
+    color: #FFFFFF;
+    border: none;
+}
+
+.link{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    width: 70%;
+}
+.link > a {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size:  var(--font_size_1);
+    text-decoration: none;
+    color: #BEBEBE;
+}
+.link > img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.courses{
+    width: 50%;
+    height: 100vh;
+    background: linear-gradient(164.34deg, #481B80 4.5%, rgba(255, 255, 255, 0.43) 88.28%);
+    border-radius: 70px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 40px;
+    overflow: auto;
+}
+.courses > h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--font_size_2);
+    height: 43px;
+    color: #FFFFFF;
+}
+.selected{
+    color: #8D51C3 !important;
+
+}
+.search{
+    padding: 10px 0 10px 40px;
+    width: 65%;
+    height: 50px;
+    background: #FFFFFF;
+    border-radius: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    color: #AAAAAA;
+    background-image: url(../img/search.png);
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 18px 50%;
+}
+.all-courses{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 75%;
+    gap: var(--dis);
+}
+ 
+
+
+
+.course-2{
+    width: calc(100% - var(--distance));
+    height: 55%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items:flex-start;
+    background: #F9FBFC;
+    border-radius: 30px;
+}
+.course-2 > img {
+    width: 40%;
+    height: auto;
+}
+.course-1{
+    width: calc(50% - var(--dis) / 2);
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: #F9FBFC;
+    border-radius: 30px;
+}
+
+.course-1 > img {
+    width: 40%;
+    height: auto;
+}
+
+.course-fragment{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 25%;
+    height: 100%;
+
+}
+.course-fragment h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--font_size_2);
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.course-info{
+    color: #8D8989;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.play{
+    box-sizing: border-box;
+    /* border: black 1px solid; */
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-color: #EEEDFF;
+}
+.play-img {
+    height: 30px;
+    width: 30px;
+}
+.progress{
+    width: 23%;
+    height: 100vh;
+    background: #F7F9FF;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-top: 30px;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: 35px;
+    overflow: auto;
+}
+.progress_courses{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    gap: 15px;
+}
+.profile_img{
+    width: 40px;
+    height: auto;
+}
+a{
+    text-decoration: none;
+}
+.profile_username{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font_size_1);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-transform: capitalize;
+}
+.progresstext{
+    margin-top: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: var(--font_size_1);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    text-transform: capitalize;
+}
+.progress_course{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.progres_bar{
+    height:13px;
+    width:50%;
+    border-radius:10px;
+    background-color: #C0EEF4;
+    border-radius: 10px;
+
+}
+.progressed_bar{
+    height:inherit;
+    background-color:  #6DC4E5;
+    left: 0px;
+    border-radius: 10px;
+}

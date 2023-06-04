@@ -1,0 +1,33 @@
+{% extends 'online_courses/course-read.html' %}
+{% load static %}
+
+
+
+
+
+        {% block content %}
+        <div class="main-area">
+            <div class="main-area__top">{{ course.title }}</div>
+            <div class="main-area__item">
+                <div class="main-area__item-top">
+                    <div class="main-area__item-title">
+                        <span class="main-rotate"> > </span>
+                        <span> Тақырып {{ lection }} </span>
+                    </div>
+                </div>
+                <div class="main-area__item-info">
+                    <p>{{ lection.lection_text1 }}</p>
+                </div>
+                <div class="main-area__item-info">
+                    <h4>Мысал</h4>
+                    <img src="{{ lection.lection_image.url }}" alt="">
+                </div>
+                <div class="main-area__item-info">
+                    <p>{{ lection.lection_text1 }}</p>
+                </div>
+            </div>
+            
+           
+        </div>
+        {% endblock %}
+     

@@ -1,0 +1,57 @@
+.main-content h3 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.chat-search {
+    display: flex;
+    margin-bottom: 40px;
+}
+.chat-search input {
+    width: 400px;
+    height: 40px;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+    padding-left: 20px;
+    outline: none;
+}
+.chat-search button {
+    width: 200px;
+    height: 40px;
+    border-radius: 0px 20px 20px 0px;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    background: orange;
+    font-weight: bold;
+    cursor: pointer;
+}
+.all-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.all-chat a {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 30px;
+    height: 60px;
+    padding-left: 30px;
+}
+.all-chat a > img {
+    height: 40px;
+    width: 40px;
+    margin-right: 40px;
+}
+.all-chat a > span {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}

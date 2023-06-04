@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/auth.css' %}">
+</head>
+<body>
+    <main class="auth">
+        <div class="auth-left">
+            <img src="{% static 'assets/img/ілім.png' %}" alt="">
+            <div class="auth-circle"></div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-option">
+                <a href="{% url 'login' %}" class="auth-login active">Kіру</a>
+                <a href="{% url 'register' %}" class="auth-create">Тіркелу</a>
+            </div>
+             <form action="" method="post">
+                <div class="auth-registration">
+                    <div class="auth-create__label">
+                        
+                        {% csrf_token %}
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                    </div>
+                    {% if messages %}
+                        {% for message in messages|slice:":1" %}
+                            <div class="alert alert-danger" role="alert" style="color: red;">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="auth-send__checkbox">
+                        <input id="checkbox" type="checkbox">
+                        <label for="checkbox">Пайдалану саясатымен келісемін</label>
+                    </div>
+                    <button class="auth-send" type="submit">Тіркелу</button>
+                </div>
+             </form>
+            
+         
+        </div>
+    </main>
+
+    <script src="{% static 'assets/js/auth.js' %}"></script>
+</body>
+</html>

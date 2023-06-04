@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{%  static 'assets/css/all-courses.css' %}">
+    <link rel="stylesheet" href="{%  static 'assets/css/teacher-main.css' %}">
+</head>
+<body>
+    
+    <main class="main">
+        <div class="sidebar-left">
+            <div class="sidebar-logo">
+                <a href="index.html">
+                    <img src="{% static 'assets/img/ілім.png' %}" alt="">
+                </a>
+            </div>
+            <div class="sidebar-left__item">
+                <a href="{% url 'all_tests' %}">
+                    <img src="{% static  'assets/icon/s1.png' %}" alt=""> 
+                    <span>Тесттер</span>
+                </a>
+                <a href="{% url 'all_courses'%}">
+                    <img src="{% static  'assets/icon/video.png' %}" alt=""> 
+                    <span>Барлық курстар</span>
+                </a>
+                <a href="{% url 'all_chats' %}">
+                    <img src="{% static  'assets/icon/chat.png' %}" alt=""> 
+                    <span>Чаттар</span>
+                </a>
+
+
+                {% if userInfo %}      
+
+                {% if userInfo.isUserTeacher %}      
+
+                <a href="{% url 'teacher_courses' %}">
+                    <img src="{% static  'assets/icon/persons.png' %}" alt=""> 
+                    <span>Менің курстарым</span>
+                </a>
+                
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="main-search">
+            <form action="#">
+                <input type="text">
+                <button>Поиск</button>
+            </form>
+        </div>
+
+
+
+        <div class="main-content">
+            <h3>Барлық курстар</h3>
+            <div class="courses-wrapper">
+                {% for course in  teacherCourses%}
+                <div class="courses-card">
+                    <div class="courses-card__left">
+                        <h3>
+                            {{course}}
+                        </h3>
+                        <div class="courses-card__item-btn">
+                            <a href="#">Өзгерту</a>
+                            <a href=" {% url 'deletecourse' pk=course.pk %}">Жою</a>
+                        </div>
+                    </div>
+                    <div class="courses-card__right">
+                        <img src="{{ course.course_icon.url }}" alt="">
+                    </div>
+                </div>
+                {%  endfor %}
+
+                <a href="{% url 'addcourse' %}" class="add-course">
+                    +
+                </a>
+            </div>
+        </div>
+         
+
+
+
+        <div class="sidebar-right">
+            <div class="sidebar-right__user">
+                {% if userInfo %}
+                <a href="{% url 'user_profile' %}">
+                    {% if userInfo.user_icon %}
+                        <img style="border-radius: 50%;" src="{{ userInfo.user_icon.url }}" alt="">
+                    {% else %}
+                        <img style="border-radius: 50%;" src="{% static  'assets/icon/avatar.png' %}" alt="">
+                    {% endif%}
+                    <h3>{{ userInfo.first_name }}  {{userInfo.last_name}}  </h3>
+                </a>
+                {% else %}
+                <a href="{% url 'login' %}">
+                    <img style="border-radius: 50%;" src="{% static  'assets/icon/avatar.png' %}" alt="">
+                    <h3>log in</h3>
+                </a>
+                {% endif %}
+            </div>
+            <div class="sidebar-right__stats">
+                <h3>Прогресс</h3>
+                {% for courses in teacherCourses %}
+                <div class="sidebar-right__courses" href="#">
+
+                    <div class="sidebar-right__courses-top">
+                        <img src="{% static 'assets/icon/s1.png' %}" alt=""> 
+                        <span class="sidebar-right__stats-name">
+                            {{ courses }}
+                        </span> -
+                        <div class="sidebar-right__stats-rating">
+                            {{ courses.subscribers|length  }}
+                        </div>
+                    </div>
+                    {% for subscriber in courses.subscribers %}
+                    <div class="sidebar-right__courses-person">
+                        <span>{{subscriber.user_pk.first_name}} {{subscriber.user_pk.last_name}}</span> <span>{{ subscriber.grades }}%</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+
+    <script src="{% static 'assets/js/teacher-main.js' %}"></script>
+</body>
+</html>

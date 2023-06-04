@@ -1,0 +1,41 @@
+:root{
+    --distance: 10px;
+    --dis:40px;
+    --font_size_1:20px;
+    --font_size_2:24px;
+}
+.all-chats{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 100%;
+    gap: 32px;
+}
+a{
+    text-decoration: none;
+}
+.chat-user{
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+}
+.chat-user-profile{
+    width: 30px;
+    height: 30px;
+}
+.chat-username{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font_size_1);
+    color: #000000;
+    text-transform: capitalize;
+}

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/user-cabinet.css' %}">
+</head>
+<body>
+    <main class="cabinet">
+        <div class="sidebar">
+            <div class="sidebar-photo">
+                <label for="photo">
+                    <img src="{% static 'assets/icon/avatar.png' %}" alt="">
+                    <button>+</button>
+                </label>
+                <input id="photo" type="file">
+            </div>
+            <div class="sidebar-item">
+                <a class="sidebar-item__active" href="">Жеке мәлімет</a>
+                <a href="">Менің курстарым</a>
+            </div>
+        </div>
+        <div class="cabinet-content">
+            <div class="cabinet-content__top">
+             
+                
+               
+                    <a href="{% url 'all_courses'%}">
+                        <button class="cabinet-content__help">
+                        Кері қайту
+                    </button>
+                    </a>
+                    
+                
+                <button class="cabinet-content__help">
+                    Техниқалық қолдау
+                </button>
+                <a href="{%  url 'logout' %}">
+                    <button>Шығу</button>
+                </a>
+                
+            </div>
+            <div class="cabinet-form">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="cabinet-photo">
+                        <label for="id_user_icon">
+                            {%  if user_info.user_icon %}
+                            <img src="{{ user_info.user_icon.url }}" alt="">
+                            {% else %}
+                            <img src="{% static 'assets/icon/avatar.png' %}" alt="">
+                            {% endif %}
+                            <button > +</button>
+                        </label>
+                       
+                    </div>
+                    {% csrf_token %}
+                    {{ form.user_icon }}
+                    <div class="cabinet-form__item">
+                        <p>Аты</p>
+                        <input type="text" value="{{ user_info.first_name }}" >
+                    </div>
+                    <div class="cabinet-form__item">
+                        <p>Фамилия</p>
+                        <input type="text" value="{{ user_info.last_name }}">
+                    </div>
+                    <div class="cabinet-form__item">
+                        <p>Қала</p>
+                        <input type="text">
+                    </div>
+                    <div class="cabinet-form__item">
+                        <p>E-mail</p>
+                        <input type="text" value="{{ user_info.email }}">
+                    </div>
+                    <div class="cabinet-form__item">
+                        <p>Телефон</p>
+                        <input type="text">
+                    </div>
+                    <button type="submit" >Сақтау</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.testprogres_bar{
+    height:8px;
+    width:20%;
+    border-radius:10px;
+    background-color: #C2C2C2;
+    border-radius: 10px;
+
+}
+.testprogressed_bar{
+    height:inherit;
+    background-color:  #66DC6A;
+    left: 0px;
+    border-radius: 10px;
+}
+.left-img{
+    width: 150px;
+    /* height: 150px; */
+
+}
+.test_icon{
+    height: 11px;
+}
+.left-test-info{
+    width: calc(20% - var(--distance));
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:center;
+}

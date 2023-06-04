@@ -1,0 +1,38 @@
+{% extends 'online_courses/main.html' %}
+{% load static %}
+ 
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/test.css' %}">
+    
+
+</head>
+ 
+        <div class="main-content">
+            <h3>Тесттер</h3>
+            
+            <div class="test-wrapper">
+                {% for mycourse in  mycourses %}
+                <div class="test-item">
+                    <div class="test-item__top">
+                        <span>{{mycourse.course_pk.title}}</span>
+                        <button>
+                            <img src="{% static 'assets/icon/gam.svg' %}" alt="">
+                        </button>
+                    </div>
+                    <div class="test-item__themes">
+                        {% for cours  in  mycourse.subject %}
+
+                        <a href="{% url 'course_test'  pk=mycourse.course_pk.pk thempk=cours.pk %}"> > <span>{{ cours.subject_name  }}</span></a>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        <script src="{% static 'assets/js/test.js' %}"></script>
+
+        {% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'online_courses/course-read.html' %}
+{% load static %}
+
+
+
+
+
+        {% block content %}
+        <div class="main-area">
+            <div class="main-area__top">{{ course.title }}</div>
+            <div class="main-area__item-show">
+                
+                <form method='post' action=''>
+                    {% csrf_token %}
+                    {% for q  in alltests%}
+                    <div class="main-area__item-info">
+                        <div class="main-area__item-top">
+                            <div class="main-area__item-title">
+                                <span class="main-rotate"> > </span>
+                                <span> {{q.test_question}} </span>
+                            </div>
+                        </div>
+                      
+                    <div class="form-check">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{q.test_question}}" id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                {{q.test_option1}}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{q.test_question}}" id="gridRadios2" value="option2">
+                            <label class="form-check-label" for="gridRadios2">
+                                {{q.test_option2}}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{q.test_question}}" id="gridRadios1" value="option3">
+                            <label class="form-check-label" for="gridRadios1">
+                                {{q.test_option3}}
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="{{q.test_question}}" id="gridRadios2" value="option4">
+                            <label class="form-check-label" for="gridRadios2">
+                                {{q.test_option4}}
+                            </label>
+                        </div>
+                        <br>
+                    </div>    
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  
+                    </div>
+                    </form>
+
+
+                
+                    <p>{{ lection.lection_text1 }}</p>
+                
+                <div class="main-area__item-info">
+                    <h4>Мысал</h4>
+                    <img src="{{ lection.lection_image.url }}" alt="">
+                </div>
+                <div class="main-area__item-info">
+                    <p>{{ lection.lection_text1 }}</p>
+                </div>
+            </div>
+            
+           
+        </div>
+        {% endblock %}
+     

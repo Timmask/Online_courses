@@ -1,0 +1,85 @@
+.courses-card:first-child {
+    width: 48%;
+    margin-bottom: 0;
+}
+.courses-card {
+    height: 300px;
+}
+.courses-card__item-btn {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.courses-card__item-btn a {
+    padding: 10px 50px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border-radius: 50px;
+}
+.courses-card__item-btn a:first-child {
+    background: #2E5EC7;
+    box-shadow: 0px 2.50913px 7.5274px rgba(0, 2, 21, 0.25);
+}
+.courses-card__item-btn a:last-child {
+    background: #C72E2E;
+    box-shadow: 0px 2.28571px 6.85714px rgba(0, 2, 21, 0.25);
+}
+.courses-card__right {
+    margin-top: -20px;
+}
+.add-course {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    width: 180px;
+    height: 180px;
+    background: #fff;
+    border-radius: 45px;
+    margin: auto;
+}
+.courses-wrapper {
+    align-items: center;
+    gap: 20px;
+}
+.sidebar-right__stats h3 {
+    font-family: 'Inter';
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 30px;
+}
+.sidebar-right__courses-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 50px;
+}
+.sidebar-right__courses-person {
+    padding: 30px;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar-right__courses {
+    height: 50px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.sidebar-right__courses-show {
+    height: auto;
+    overflow: visible;
+}

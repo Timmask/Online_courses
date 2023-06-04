@@ -1,0 +1,53 @@
+.main-content > h3 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 32px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+.courses-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0px;
+}
+.courses-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 30px;
+    position: relative;
+    border-radius: 30px;
+    width: 48%;
+    height: 350px;
+}
+.courses-card:first-child {
+    width: 100%;
+    margin-bottom: 30px;
+}
+.courses-play {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+.courses-card__right img {
+    width: 80%;
+    margin-left: 50px;
+}
+.courses-card h3 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000000;
+}
+@media (max-width: 990px) {
+    .courses-card {
+        width: 100%;
+        margin-bottom: 0 !important;
+    }
+    .courses-wrapper {
+        gap: 30px;
+    }
+}

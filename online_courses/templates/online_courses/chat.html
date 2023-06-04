@@ -1,0 +1,35 @@
+{% extends 'online_courses/main.html' %}
+{% load static %}
+
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/chat.css' %}">
+</head>
+
+        <div class="main-content">
+            <div class="chat">
+                <div class="chat-top">
+                    <button onclick="history.back()">Артқа</button>
+                    <p>{{ companion_user.first_name }} {{ companion_user.last_name }}</p>
+                    {% if companion_user.user_icon %}
+                        <img src="{{ companion_user.user_icon.url }}" alt=""> 
+                    {% else %}
+                        <img src="assets/icon/chat.svg" alt=""> 
+                    {% endif %}
+                </div>
+                <div class="chat-area"></div>
+                <form action="#" class="chat-form">
+                    <label for="file">
+                        <img src="assets/icon/file.svg" alt="">
+                    </label>
+                    <input id="file" type="file">
+                    <input type="text" placeholder="Бірнәрсе жаз...">
+                    <button type="submit">
+                        <img src="assets/icon/send.svg" alt="">
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endblock %}
+      

@@ -1,0 +1,168 @@
+.main-area__top input {
+    height: 100% !important;
+    width: 400px;
+    border: none;
+}
+.main-area__top input::placeholder {
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+}
+.main-area__item {
+    height: auto;
+    background: transparent;
+}
+.main-area__add {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: fit-content;
+    margin: auto;
+    padding: 30px 100px;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+.main-area__add button {
+    border: none;
+    padding: 10px 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px gray;
+    background: transparent;
+}
+.add-card {
+    padding: 30px;
+    margin-bottom: 20px;
+    background: #fff;
+}
+.add-card h3, .main-theme-c-inp h3 {
+    margin-bottom: 20px;
+    font-family: 'Inter';
+}
+.add-card p, .main-theme-c-inp p {
+    font-family: 'Inter';
+}
+.add-card input[type=text], .main-theme-c-inp input[type=text] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 0.5px solid rgba(128, 128, 128, 0.425);
+}
+.add-card textarea, .main-theme-c-inp textarea {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+    border: 0.5px solid rgba(128, 128, 128, 0.425);
+}
+.add-card button, .main-theme-c-inp button {
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+    font-family: "Inter";
+    border: none;
+}
+.main-area {
+    height: auto;
+    padding-bottom: 150px;
+}
+.main-content {
+    overflow: hidden;
+}
+.save {
+    width: fit-content;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    background: green;
+    color: #fff;
+    font-family: 'Inter';
+    display: block;
+    margin: auto;
+}
+.main-theme-c-item {
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.main-theme-c-item__top {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    align-items: center;
+    height: 70px;
+    cursor:cell;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+.main-theme-c-item-show {
+    height: auto;
+    overflow: visible;
+    background: #fff;
+}
+.main-theme-c-item__top button {
+    border: none;
+    background-color: transparent;
+}
+.main-theme-c-inp {
+    padding: 20px;
+}
+.main-sidebar-course-theme {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    font-family: 'Inter';
+    font-size: 18px;
+    padding-left: 30px;
+}
+.main-sidebar-course-theme button {
+    border: none;
+    cursor: pointer;
+}
+
+.emtihan {
+    background: #fff;
+    padding: 30px;
+}
+.emtihan-item {
+    border-bottom: 3px solid black;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.emtihan-item > input {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 40px;
+}
+.emtihan-item__var {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.emtihan-item__var {
+    width: 50%;
+}
+.emtihan-item__var input {
+    height: 40px;
+}
+.emtihan button {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 20px auto;
+}
+@media (max-width: 990px) {
+    .main-area__add {
+        padding: 30px 20px;
+    }
+}

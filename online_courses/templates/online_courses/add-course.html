@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'assets/css/second.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/add-course.css' %}">
+</head>
+<style>
+#text{
+    color: red;
+}
+
+
+</style>
+<body>
+    <main class="main-content">
+        <div class="main-sidebar">
+            <div class="main-sidebar__top">
+                <img src="{% static  'assets/img/sidebar-right.jpg' %}" alt="">
+            </div>
+            <div class="main-sidebar__area">
+                <h3>Курс материалы</h3>
+                <div class="main-sidebar__area-anh">
+                    <form class="main-sidebar-course-theme">
+                        <span>
+                            Бөлім 1
+                        </span> 
+                        <button>
+                            <img src="assets/icon/musor-small.svg" alt="">
+                        </button>
+                    </form>
+                    <a href="#"> + Жаңа бөлім қосу</a>
+                    <a href="#"> + Ескертпелер</a>
+                    <a href="#"> + Ресурстар</a>
+                </div>
+            </div>
+        </div>
+
+        <form action="" method="post" >
+
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" role="alert" style="color: red;">
+                        {{ message }}
+                        </div>
+                    {% else %}
+                        <div  class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }} 
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% csrf_token %}
+            <div class="main-area">
+                <div class="main-area__top">
+                     
+                    <input type="text" placeholder="Жаңа курс ">
+                </div>
+                 <div class="main-theme-c-item-show">
+                    <div class="main-theme-c-inp">
+                        {{ courseform.as_p }}
+                    </div>
+
+                    <div class="main-theme-c-item__top">
+                        {{  subjectform.as_p }}
+                        <button><img src="{% static 'assets/icon/musor.svg' %}" alt=""></button>
+                    </div>
+
+                    <div class="main-theme-c-inp">
+                        {{ lectionform.as_p }}
+
+                         
+                        <!-- <p>Видеолекция</> -->
+                        {{videoform.as_p}}
+                    </div>
+                </div>
+                <!-- тут выводишь добавленную тему -->
+                
+                 
+
+
+                <div class="emtihan">
+                    <div class="emtihan-quest">
+                        <div class="emtihan-item">
+                            {{ coursetests.test_question}}
+                            <div class="emtihan-item__var">
+                                <!-- <input type="text" placeholder="Нуска 1">
+                                <input type="text" placeholder="Нуска 2">
+                                <input type="text" placeholder="Нуска 3">
+                                <input type="text" placeholder="Нуска 4"> -->
+
+                                {% for test in  coursetests %}
+
+                                    {{ test.label }}
+                                    {{ test }}
+                                    <br>
+                                        {% for error in test.errors %}
+                                            <div style="color: red;">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+                <button class="save" type="submit">Сақтау</button>
+            </div>
+        </form>
+    </main>
+    <button class="open-left__sidebar"> > </button>
+
+    <script src="{% static 'assets/js/mobile-second.js' %}"></script>
+    <script src="{% static 'assets/js/add-course.js' %}'></script>
+</body>
+</html>

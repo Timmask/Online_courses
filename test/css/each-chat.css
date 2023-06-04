@@ -1,0 +1,107 @@
+:root{
+    --distance: 10px;
+    --dis:40px;
+    --font_size_1:20px;
+    --font_size_2:24px;
+}
+.messenger{
+    width: 100%;
+    height: 85%;
+    background: #F9FBFC;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+}
+.chat-info{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0 20px;
+    box-sizing: border-box;
+    border-bottom: solid black 1px;
+}
+.chat-user-profile{
+    width: 30px;
+    height: 30px;
+}
+.chat-username{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font_size_1);
+    color: #000000;
+    text-transform: capitalize;
+}
+.back{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.back_text{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+.messages{
+    height: 80%;
+    width: 100%;
+}
+.messanger-send{
+    height: 10%;
+    width: 100%;
+    background: rgba(141, 81, 195, 0.24);
+    border-radius: 0px 0px 50px 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0 40px 0 40px;
+    align-items: center;
+}
+.files , .send{
+   opacity: 0;
+   z-index:10;
+   width: 25px;
+    height: 25px;
+}
+.file-icon{
+    width: 25px;
+    height: 25px;
+    background: url(../img/image\ 14.svg) 0 0 no-repeat;
+    background-size: cover;
+}
+.message-text{
+    width: 85%;
+    height: 30px;
+    background: #F9FBFC;
+    border-radius: 5px;
+    padding-left: 20px;
+    border: none;
+    outline: none;
+}
+.message-text::placeholder{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #5F5E5E;
+}
+.message-text:focus{
+    border: none;
+    outline: none;
+}
+.send-icon{
+    width: 25px;
+    height: 25px;
+    background: url(../img/image\ 15.svg) 0 0 no-repeat;
+    background-size: cover;
+}

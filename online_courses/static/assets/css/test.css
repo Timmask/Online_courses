@@ -1,0 +1,63 @@
+.main-content h3 {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 46px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+.test-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.test-item {
+    height: 70px;
+    width: 100%;
+    background: #fff;
+    border-radius: 45px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow: hidden;
+}
+.test-item__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.test-item__top span {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    color: #000000;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.test-item__top button {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.test-item__themes {
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.active {
+    height: fit-content;
+}
+.test-item__themes a {
+    display: block;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 90.52%;
+    color: #000000;
+    transition: 1s;
+}
+.test-item__themes a:hover {
+    margin-left: 20px;
+}

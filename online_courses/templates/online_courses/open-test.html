@@ -1,0 +1,48 @@
+{% extends 'online_courses/main.html' %}
+{% load static %}
+<!-- nursat.berikbayev@gmail.com -->
+<!-- i9yuwvf8376fdr9867dx8 -->
+{% block content %}
+<head>
+     <link rel="stylesheet" href="{% static 'assets/css/open-test.css' %} ">
+</head>
+        <div class="main-content">
+            <form class="open-test" method='post'>
+                {% csrf_token %}
+                <h3>{{ course.title }}</h3>
+
+                {% for q  in alltests%}
+                <div class="open-test__item">
+                    <h3>{{ q.test_question }} </h3>
+                    <div>
+                        <input type="radio" name="{{q.test_question}}" id="test_option1" value="{{q.test_option1}}" checked>  
+                        <label class="form-check-label" for="test_option1">
+                            {{q.test_option1}}
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="{{q.test_question}}" id='test_option2' value="{{q.test_option2}}">
+                         <label class="form-check-label" for="test_option2">
+                            {{q.test_option2}}
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="{{q.test_question}}" id='test_option3' value="{{q.test_option3}}"> 
+                        <label class="form-check-label" for="test_option3">
+                            {{q.test_option3}}
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="{{q.test_question}}" id='test_option4'    value="{{q.test_option4}}"> 
+                        <label class="form-check-label" for="test_option4">
+                            {{q.test_option4}}
+                        </label>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                <button type="submit">Жуктеу</button>
+            </form>
+        </div>
+     
+        {% endblock %}

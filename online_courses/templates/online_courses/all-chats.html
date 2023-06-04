@@ -1,0 +1,37 @@
+{% extends 'online_courses/main.html' %}
+{% load static %}
+
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/all-chats.css' %}">
+</head>
+
+        <div class="main-content">
+            <h3>Барлық чаттар</h3>
+            <div class="chat-search">
+                <input type="text" placeholder="Іздеу">
+                <button>Іздеу</button>
+            </div>
+            <div class="all-chat">
+            {% for user in all_users %}
+                <a href="{% url 'chat' pk=user.user_pk.pk %}" class="chat-item">
+
+                    {% if user.user_icon %}
+                        <img src="{{ user.user_icon.url }}" alt=""> 
+                    {% else %}
+                        <img src="assets/icon/chat.svg" alt=""> 
+                    {% endif %}
+                    <span>{{ user.first_name }} {{ user.last_name }}</span>
+                </a>
+                <!-- <a href="#" class="chat-item">
+                    <img src="assets/icon/chat.svg" alt=""> <span>Аты Жөні</span>
+                </a>
+                <a href="#" class="chat-item">
+                    <img src="assets/icon/chat.svg" alt=""> <span>Аты Жөні</span>
+                </a> -->
+            {% endfor %}
+            </div>
+            
+        </div>
+        {% endblock %}

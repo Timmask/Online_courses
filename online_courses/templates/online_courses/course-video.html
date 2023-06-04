@@ -1,0 +1,29 @@
+{% extends 'online_courses/course-read.html' %}
+{% load static %}
+
+
+
+
+
+        {% block content %}
+        <div class="main-area">
+            <div class="main-area__top">{{ course.title }}</div>
+            <div class="main-area__item-show">
+                <div class="main-area__item-info">
+                    <div class="main-area__item-title">
+                        <span class="main-rotate"> > </span>
+                        <span> Тақырып {{ video.lection_title }} </span>
+                    </div>
+                </div>
+                <div class="main-area__item-info">
+                    <video   controls>
+                        <source src='{{ MEDIA_URL }}{{ video.lection_video }}' type='video/mp4'>
+                    </video>
+                </div>
+                
+            </div>
+            
+           
+        </div>
+        {% endblock %}
+     

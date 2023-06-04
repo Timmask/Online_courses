@@ -1,0 +1,47 @@
+{% extends 'online_courses/main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/course-details.css' %}">
+</head>
+
+        <div class="main-content">
+            <div class="course-details">
+                <div class="course-details__info">
+                    <div class="course-details__info-left">
+                        <h3> {{ course.title}} </h3>
+                        <p>
+                            {{ course.info }}
+                        </p>
+                    </div>
+                    <div class="course-details__info-right">
+                        <img src="{{ course.course_icon.url }}" alt="">
+                        {% if subscribe %}
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; width: 250px;">
+                            <a href="{% url 'deletemycourses' pk=course.pk  %} ">
+                                <button style="background-color: #31465a;width: 90%;  " >Курстан бас тарту</button>
+                            </a>  
+                            <a href="{% url 'full_course' pk=course.pk  thempk=1 %}"><button style="width: 90%;" >Курсты оқу</button></a>  
+                        </div>
+                            {% else %}
+                        <a href="{% url 'addmycourses' pk=course.pk  %}">
+                            <button>Курсқа тіркелу</button>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="course-details__programm">
+                    <h3>Курс бағдарламасы:</h3>
+                    <ul>
+                        {% for subject in all_subjects %}
+                        <li>{{subject}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+{% endblock %}
