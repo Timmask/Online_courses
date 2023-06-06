@@ -90,7 +90,7 @@ class UserMessages(models.Model):
     user_sender=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE , related_name='user_sender')
     user_reciver=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='user_reciver')
     message_text=models.TextField()
-    message_date=models.DateField()
+    message_date=models.DateTimeField(default=timezone.now)
 
     def isCurrerntUserSender(self,curUser):
         if(self.user_sender.pk == curUser.pk):

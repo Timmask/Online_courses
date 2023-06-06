@@ -4,6 +4,7 @@
 
 {% block content %}
 <head>
+    <link rel="stylesheet" href="{% static 'assets/css/messages.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/chat.css' %}">
 </head>
 
@@ -18,15 +19,45 @@
                         <img src="assets/icon/chat.svg" alt=""> 
                     {% endif %}
                 </div>
-                <div class="chat-area"></div>
-                <form action="#" class="chat-form">
+                <div class="chat-area">
+
+                    <div class="mesgs">
+                        <div class="msg_history">
+                          {% for message in messages %}
+                            {% if message.current_user %}
+                            <div class="outgoing_msg">
+                                <div class="sent_msg">
+                                <p>{{message.message_text}}</p>
+                                <span class="time_date"> {{message.message_date}}</span> 
+                                </div>
+                            </div>
+                            {% else  %}
+                            <div class="incoming_msg">
+                                <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>{{message.message_text}}</p>
+                                <span class="time_date"> {{message.message_date}}</span> 
+                                </div>
+                                </div>
+                            </div>
+                            {% endif  %}
+                          {% endfor  %}
+                        </div>
+                      </div>
+
+
+
+
+                </div>
+                <form action="" class="chat-form" method="post">
+                    {% csrf_token %}
                     <label for="file">
-                        <img src="assets/icon/file.svg" alt="">
+                        <img src="{% static 'assets/icon/file.svg' %}" alt="">
                     </label>
                     <input id="file" type="file">
-                    <input type="text" placeholder="Бірнәрсе жаз...">
+                    <input type="text" placeholder="Бірнәрсе жаз..." name="text" required>
                     <button type="submit">
-                        <img src="assets/icon/send.svg" alt="">
+                        <img src="{% static 'assets/icon/send.svg' %}" alt="">
                     </button>
                 </form>
             </div>

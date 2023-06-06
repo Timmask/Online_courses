@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 def all_courses(request):
     allCourses=CourseGeneral.objects.all()
@@ -111,17 +112,19 @@ def all_chats(request):
     return render(request,'online_courses/all-chats.html',{"mycourses":mycourses,"userInfo":userInfo,'all_users':all_users})
 
 def every_chat(request,pk):
-    userInfo=get_object_or_404( AllUserInfo,user_pk=request.user.pk).user_pk
-    companion_user=get_object_or_404( AllUserInfo,user_pk=pk).user_pk
+    user=get_object_or_404( AllUserInfo,user_pk=request.user.pk)
+    companion_user=get_object_or_404( AllUserInfo,user_pk=pk) 
     mycourses=UserCourseSubscribe.objects.filter(user_pk=request.user)
-
-    return render(request,'online_courses/chat.html',{"current_user":userInfo,"companion_user":companion_user,'mycourses':mycourses})
-
-# def open_full_course(request,pk):
-#     all_themes=CourseSubject.objects.filter(course_pk=pk)
-#     course=get_object_or_404(CourseGeneral,pk=pk)
-#     first_theme=all_themes[0]
-#     return render(request ,'online_courses/course-read.html',{'all_themes':all_themes,'course':course,'first':first_theme})
+    if request.method=='POST':
+        message_text=request.POST.get('text')
+        UserMessages.objects.create(user_sender=request.user,user_reciver=companion_user.user_pk,message_text=message_text)
+    chat_messages=UserMessages.objects.filter(Q(user_sender=request.user,user_reciver=companion_user.user_pk) | Q(user_sender=companion_user.user_pk,user_reciver=request.user)).order_by('-message_date')
+    for messages in chat_messages:
+        if messages.user_sender==request.user:
+            messages.current_user=True
+        else:
+            messages.current_user=False
+    return render(request,'online_courses/chat.html',{"userInfo":user,"companion_user":companion_user,'mycourses':mycourses,"messages":chat_messages})
 
 def open_theme_course(request,pk,thempk):
     all_themes=CourseSubject.objects.filter(course_pk=pk)
@@ -180,6 +183,8 @@ def course_test(request,pk,thempk):
     return render(request ,'online_courses/open-test.html',{'all_themes':all_themes,'course':course,'them':first_theme,'alltests':alltests , "mycourses":mycourses,'userInfo':userInfo})
 
 def all_tests(request):
+    if( not request.user.is_authenticated ):
+        return redirect('login')
     userInfo=get_object_or_404( AllUserInfo,user_pk=request.user)
 
     mycourses=UserCourseSubscribe.objects.filter(user_pk=request.user.pk)

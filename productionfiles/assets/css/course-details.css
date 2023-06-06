@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.course-details__info {
+    padding: 30px;
+    background: #fff;
+    border-radius: 30px;
+    display: flex;
+    gap: 50px;
+}
+.course-details__info-left {
+    width: 60%;
+} 
+.course-details__info-left h3, .course-details__programm h3 {
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 35px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.course-details__info-left p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+}
+
+.course-details__info-right {
+    width: 30%;
+}
+.course-details__info-right img {
+    width: 231px;
+    height: 175px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.course-details__info-right button {
+    width: 231px;
+    height: 40px;
+    background: orange;
+    box-shadow: 0px 4px 12px rgba(0, 2, 21, 0.25);
+    border-radius: 7px;
+    border: none;
+
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+.course-details__programm {
+    padding: 30px;
+    background: #fff;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+.course-details__programm ul {
+    margin-left: 30px;
+}
+.course-details__programm li {
+    margin-bottom: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+
+
+@media (max-width: 990px) {
+    .course-details__info {
+        flex-wrap: wrap-reverse;
+    }
+    .course-details__info-left, .course-details__info-right {
+        width: 100%;
+    }
+    .course-details__info-right img, .course-details__info-right button {
+        width: 100%;
+    }
+}
